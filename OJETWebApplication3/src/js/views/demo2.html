@@ -1,0 +1,119 @@
+<div id="sampleDemo" class="demo-padding demo-container">
+    <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+              
+      <div id="div1">
+        <h3 class="oj-header-border">Date</h3>
+        <p>Converts between locale specific date string and Date value.</p>
+        <p></p>
+        <b>Example 1</b>
+        : Default converter on the input date component demo (when
+        <code class="prettyprint">converter</code>
+        attribute is not set).
+        <oj-form-layout>
+          <oj-input-date
+            id="date1"
+            value="{{date}}"
+            label-hint="input date with default converter"></oj-input-date>
+        </oj-form-layout>
+        <p></p>
+        <b>Example 2</b>
+        :
+        <code class="prettyprint">IntlDateTimeConverter's</code>
+        option is set to
+        <code class="prettyprint">{year: 'numeric', month: 'long', day: 'numeric'}</code>
+        <oj-form-layout>
+          <oj-input-date
+            id="date2"
+            value="{{date}}"
+            converter="[[dateTimeNumericConverter]]"
+            label-hint="input date long"></oj-input-date>
+        </oj-form-layout>
+        <p></p>
+        <b>Example 3</b>
+        :
+        <code class="prettyprint">IntlDateTimeConverter's</code>
+        option is set to
+        <code class="prettyprint">{formatType: 'date', dateFormat: 'medium'}</code>
+        <oj-form-layout>
+          <oj-input-date
+            id="date3"
+            value="{{date}}"
+            converter="[[dateMediumConverter]]"
+            label-hint="input date medium"></oj-input-date>
+        </oj-form-layout>
+        <h3 class="oj-header-border">Date and Time</h3>
+        <p>Converts between locale specific date and time string and Date value.</p>
+        <p></p>
+        <b>Example 1</b>
+        : Default converter on the input dateTime component demo (when
+        <code class="prettyprint">converter</code>
+        is not set).
+        <oj-form-layout>
+          <oj-input-date-time
+            id="datetime1"
+            value="{{datetime}}"
+            label-hint="input datetime with default converter"></oj-input-date-time>
+        </oj-form-layout>
+        <p></p>
+        <b>Example 2</b>
+        :
+        <code class="prettyprint">IntlDateTimeConverter's</code>
+        option is set to
+        <code class="prettyprint">
+          {formatType: 'datetime', dateFormat: 'short', timeFormat: 'short'}
+        </code>
+        .
+        <oj-form-layout>
+          <oj-input-date-time
+            id="datetime2"
+            value="{{datetime}}"
+            converter="[[dateTimeShortConverter]]"
+            label-hint="input datetime short"></oj-input-date-time>
+        </oj-form-layout>
+        <h3 class="oj-header-border">Time</h3>
+        <p>Converts between locale specific time string and Date value.</p>
+        <p></p>
+        <b>Example 1</b>
+        : Default converter on the input time component demo (when
+        <code class="prettyprint">converter</code>
+        attribute is not set).
+        <oj-form-layout>
+          <oj-input-time
+            id="time1"
+            value="{{time}}"
+            label-hint="input time with default converter"></oj-input-time>
+        </oj-form-layout>
+        <p></p>
+        <b>Example 2</b>
+        :
+        <code class="prettyprint">IntlDateTimeConverter's</code>
+        option set to -
+        <code class="prettyprint">{formatType: 'time', timeFormat: 'full'}</code>
+        .
+        <oj-form-layout>
+          <oj-input-time
+            id="time2"
+            value="{{time}}"
+            converter="[[timeFullConverter]]"
+            label-hint="input time full"></oj-input-time>
+        </oj-form-layout>
+        <p></p>
+        <b>Example 3</b>
+        :
+        <code class="prettyprint">IntlDateTimeConverter's</code>
+        option set to -
+        <code class="prettyprint">{hour: '2-digit', minute: '2-digit', second: '2-digit'}</code>
+        .
+        <oj-form-layout>
+          <oj-input-time
+            id="time3"
+            value="{{time}}"
+            converter="[[twoDigitTimeConverter]]"
+            label-hint="input time 2-digit"></oj-input-time>
+        </oj-form-layout>
+      </div>
+      
+      
+      
+    </div>
+  </div>

@@ -1,0 +1,57 @@
+<h1>demo1</h1>
+<div id="div1">
+    <oj-form-layout max-columns="1" direction="row">
+        <oj-label for="txt1">Name</oj-label>
+        <oj-input-text id="txt1" value="{{nameValue}}"></oj-input-text>
+
+        <oj-bind-text value="[[nameValue]]"></oj-bind-text>
+        <oj-label for="txt2">Salary</oj-label>
+        <oj-c-input-number id="txt1" value="{{salaryValue}}" label-hint="Enter Salary"></oj-c-input-number>
+        <oj-bind-text value="[[salaryValue]]"></oj-bind-text>
+        <oj-label for="txt3">Date of Join</oj-label>
+        <oj-date-picker id="txt3" value="{{doj}}"></oj-date-picker><br>
+        <oj-bind-text value="[[doj]]"></oj-bind-text>
+        <oj-c-input-password value="{{password}}" label-hint="Enter Password"></oj-c-input-password>
+        <oj-c-checkbox id="enabledCheckboxOn" value="true">Ready To Travel</oj-c-checkbox>
+        <oj-c-checkboxset id="enabledCheckboxset" value='["chrome","edge"]' options="[[options]]"
+            label-hint="Choose Browsers"></oj-c-checkboxset>
+        <oj-c-checkboxset id="enabledCheckboxset" value='["chrome","edge"]' options="[[options]]"
+            label-hint="Choose Browsers" direction="row"></oj-c-checkboxset>
+        <oj-c-radioset id="enabledRadioset" value="laptop" label-hint="Enabled" options="[[laptopOptions]]">
+        </oj-c-radioset>
+        <oj-c-radioset id="enabledRadioset" value="laptop" label-hint="Enabled" direction="row"
+            options="[[laptopOptions]]">
+        </oj-c-radioset>
+
+        <oj-combobox-one id="combobox1" value="Chrome" label-hint="Choose" class="oj-form-control-max-width-md">
+            <oj-option value="Internet Explorer">Internet Explorer</oj-option>
+            <oj-option value="Firefox">Firefox</oj-option>
+            <oj-option value="Chrome">Chrome</oj-option>
+            <oj-option value="Opera">Opera</oj-option>
+            <oj-option value="Safari">Safari</oj-option>
+        </oj-combobox-one>
+
+        <oj-combobox-many id="combobox1" value='[[ ["Chrome", "Safari"] ]]' label-hint="Choose"
+            class="oj-form-control-max-width-md">
+            <oj-option value="Internet Explorer">Internet Explorer</oj-option>
+            <oj-option value="Firefox">Firefox</oj-option>
+            <oj-option value="Chrome">Chrome</oj-option>
+            <oj-option value="Opera">Opera</oj-option>
+            <oj-option value="Safari">Safari</oj-option>
+        </oj-combobox-many>
+
+        <oj-c-select-multiple data="[[browsersDP]]" item-text="label" value="[[selectVal]]"
+            label-hint="Select the Browsers"></oj-c-select-multiple>
+
+        <oj-c-select-single data="[[browsersDP]]" item-text="label" value="CH"
+            label-hint="Select the browser"></oj-c-select-single>
+
+        <oj-slider min="0" max="100" value="50" label-hint="Choose"></oj-slider>
+        <oj-slider min="0" max="100" value="50" orientation="vertical" label-hint="Vertical"></oj-slider>
+
+        <oj-switch id="enabledSwitchOn" value="true" label-hint="Receive Notifications"></oj-switch>
+
+        <oj-c-text-area value="This is a really long sample text to show text area value." label-hint="Type Address"
+            rows="5"></oj-c-text-area>
+    </oj-form-layout>
+</div>

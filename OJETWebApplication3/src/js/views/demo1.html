@@ -1,0 +1,377 @@
+<div id="sampleDemo" class="demo-padding demo-container">
+    <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+              
+      <div id="div1">
+        <!-- Currency Converter -->
+        <h3 class="oj-header-border">Currency</h3>
+        <p>Converts between number and a locale specific string displayed in currency format.</p>
+      
+        <p></p>
+        <b>Example 1</b>
+        :
+        <code class="prettyprint">
+          {"style": "currency", "currency": "EUR", "currencyDisplay": "symbol"}
+        </code>
+        <oj-form-layout id="fl1">
+          <oj-c-input-number
+            label-hint="currency EUR"
+            id="currency12"
+            value="{{currency}}"
+            help.instruction="enter an amount with or without grouping separator"
+            converter="[[eurNumberConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+        <b>Example 2</b>
+        :
+        <code class="prettyprint">
+          {"style": "currency", "currency": "USD", "currencyDisplay": "code"}
+        </code>
+        <oj-form-layout id="fl2">
+          <oj-c-input-number
+            label-hint="currency USD"
+            id="currency21"
+            value="{{currency}}"
+            help.instruction="enter an amount with or without grouping separator"
+            converter="[[usdNumberConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+        <h4 class="oj-header-border">Currency roundDuringParse</h4>
+        <p>
+          Converts between number and a locale specific string displayed in currency format and rounds
+          during parse.
+        </p>
+        <b>Example 1</b>
+        :
+        <code class="prettyprint">
+          {"style": "currency", "currency": "EUR", "roundDuringParse": "true", "currencyDisplay":
+          "symbol", "roundingMode": "HALF_UP"}
+        </code>
+        <oj-form-layout id="fl3">
+          <oj-c-input-number
+            label-hint="currency round up"
+            id="currency31"
+            value="{{currencyRoundDuringParse}}"
+            help.instruction="Enter an amount with or without grouping separator. It will round during parse"
+            converter="[[currencyHalfUpConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+        <span>Current component value is:</span>
+        <span id="curr-value-currency-round">
+          <oj-bind-text value="[[currencyRoundDuringParse]]"></oj-bind-text>
+        </span>
+        <br />
+        <h4 class="oj-header-border">CurrencyFormat: short</h4>
+        <p>
+          Enter an amount in field above and the formatted currency will be displayed in readonly field
+          below
+        </p>
+        <b>Example 2</b>
+        :
+        <code class="prettyprint">
+          {"style": "currency", "currency": "USD", "currencyDisplay": "symbol", "currencyFormat":"short",
+          "minimumFractionDigits":"0"}
+        </code>
+        <oj-form-layout id="flC1">
+          <oj-c-input-number
+            label-hint="readonly currency short"
+            id="inputTextShortNumber"
+            value="{{currencyRoundDuringParse}}"
+            readonly
+            help.instruction="Enter an amount in field and the formatted currency
+                              will be displayed in readonly field below"
+            converter="[[usdShortNumberConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+        <span>Current component value is:</span>
+        <span id="valueShortNumber">
+          <oj-bind-text value="[[currencyRoundDuringParse]]"></oj-bind-text>
+        </span>
+        <br />
+        <h4 class="oj-header-border">CurrencyFormat: long</h4>
+        <p>
+          Enter an amount in field above and the formatted currency will be displayed in readonly field
+          below
+        </p>
+        <b>Example 3</b>
+        :
+        <code class="prettyprint">
+          {"style": "currency", "currency": "USD", "currencyDisplay": "symbol", "currencyFormat":"long",
+          "minimumFractionDigits":"0"}
+        </code>
+        <oj-form-layout id="flC2">
+          <oj-c-input-number
+            label-hint="readonly currency long"
+            id="inputTextLongNumber"
+            value="{{currencyRoundDuringParse}}"
+            readonly
+            help.instruction="Enter an amount in field and the formatted currency
+                              will be displayed in readonly field below"
+            converter="[[usdLongNumberConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+        <span>Current component value is:</span>
+        <span id="valueLongNumber">
+          <oj-bind-text value="[[currencyRoundDuringParse]]"></oj-bind-text>
+        </span>
+        <br />
+        <!-- Decimal Converter -->
+        <h3 class="oj-header-border">Decimal</h3>
+        <p>Converts between number and a locale specific string displayed in decimal format.</p>
+        <b>Example 1</b>
+        : Default converter used on input number component demo (when
+        <code class="prettyprint">converter</code>
+        attribute is not set).
+        <oj-form-layout id="fl4">
+          <oj-c-input-number
+            label-hint="decimal default"
+            id="decimal10"
+            value="{{decimal}}"
+            help.instruction="enter a number. grouping separator is accepted"></oj-c-input-number>
+        </oj-form-layout>
+        <b>Example 2</b>
+        :
+        <code class="prettyprint">
+          {"style": "decimal", "minimumIntegerDigits": "2", "useGrouping": "false",
+          "minimumFractionDigits": "1", "maximumFractionDigits": "1"}
+        </code>
+      
+        <oj-form-layout id="fl5">
+          <oj-c-input-number
+            label-hint="no grouping"
+            id="decimal11"
+            value="{{decimal}}"
+            help.instruction="enter a number. grouping separator is ignored"
+            converter="[[decimal1Converter]]"></oj-c-input-number>
+        </oj-form-layout>
+        <b>Example 3</b>
+        :
+        <code class="prettyprint">{"style": "decimal", "decimalFormat": "short"}</code>
+      
+        <oj-form-layout id="fl6">
+          <oj-c-input-number
+            label-hint="readonly decimal short"
+            id="decimal13"
+            value="{{decimal}}"
+            readonly
+            converter="[[decimalShortConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+      
+        <b>Example 4</b>
+        :
+        <code class="prettyprint">
+          {"style": "decimal", "minimumIntegerDigits": "2", "useGrouping": "false", "decimalFormat":
+          "short", "minimumFractionDigits": "1", "maximumFractionDigits": "1"}
+        </code>
+        .
+        <oj-form-layout id="fl7">
+          <oj-c-input-number
+            label-hint="readonly decimal short minimumIntegerDigits 2"
+            id="decimal14"
+            value="{{decimal}}"
+            readonly
+            help.instruction="the number entered in the previous input in short format"
+            converter="[[decimal2Converter]]"></oj-c-input-number>
+        </oj-form-layout>
+      
+        <b>Example 5</b>
+        :
+        <code class="prettyprint">{"style": "decimal", "decimalFormat": "long"}</code>
+      
+        <oj-form-layout id="fl8">
+          <oj-c-input-number
+            label-hint="readonly decimal long"
+            id="decimal15"
+            value="{{decimal}}"
+            readonly
+            help.instruction="the number entered in the previous input in long format"
+            converter="[[decimalLongConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+        <h4>Decimal Converter with roundingMode</h4>
+        <p>
+          Converts between number and a locale specific string displayed in decimal format and sets the
+          roundMode to HALF_UP, HALF_DOWN, or HALF_EVEN. By default, the converter rounds during format,
+          but not parse, so the current component value may not match the display value. You would use
+          roundDuringParse option if you want to round during parse.
+        </p>
+        <b>Example 1</b>
+        :
+        <code class="prettyprint">
+          "style": "decimal", "maximumFractionDigits": "0", "roundingMode": "HALF_UP"
+        </code>
+        <oj-form-layout id="fl9">
+          <oj-c-input-number
+            label-hint="round up"
+            id="decimal21"
+            value="{{decimalRoundingMode}}"
+            help.instruction="the number in HALF_UP rounding mode"
+            converter="[[decimalHalfUpGroupConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+      
+        <b>Example 2</b>
+        :
+        <code class="prettyprint">
+          {"style": "decimal", "maximumFractionDigits": "0", "roundingMode": "HALF_DOWN"}
+        </code>
+        <oj-form-layout id="fl10">
+          <oj-c-input-number
+            label-hint="round down"
+            id="decimal22"
+            value="{{decimalRoundingMode}}"
+            help.instruction="the number entered in the previous input in HALF_DOWN rounding mode"
+            converter="[[decimalHalfDownGroupConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+      
+        <b>Example 3</b>
+        :
+        <code class="prettyprint">
+          {"style": "decimal", "maximumFractionDigits": "0", "roundingMode": "HALF_EVEN"}
+        </code>
+        .
+        <oj-form-layout id="fl11">
+          <oj-c-input-number
+            label-hint="round even"
+            id="decimal23"
+            value="{{decimalRoundingMode}}"
+            help.instruction="the number entered in the previous input in HALF_EVEN rounding mode"
+            converter="[[decimalHalfEvenGroupConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+        <span>Current component value is:</span>
+        <span id="curr-decimalRoundingMode-value">
+          <oj-bind-text value="[[decimalRoundingMode]]"></oj-bind-text>
+        </span>
+        <br />
+        <h4>Decimal Converter with roundingMode and roundDuringParse: true</h4>
+        <p>
+          Converts between number and a locale specific string displayed in decimal format and sets the
+          roundMode to HALF_UP, HALF_DOWN, or HALF_EVEN. These examples also set roundDuringParse, and you
+          will see the current component value matches the display value.
+        </p>
+        <b>Example 1</b>
+        :
+        <code class="prettyprint">
+          {"style": "decimal", "maximumFractionDigits": "2", "roundingMode": "HALF_UP",
+          "roundDuringParse": "true"}
+        </code>
+        <oj-form-layout id="fl12">
+          <oj-c-input-number
+            label-hint="roundDuringParse up"
+            id="decimal31"
+            value="{{decimalRoundingModeUpParse}}"
+            help.instruction="enter a number and it will round to HALF_UP and round during parse"
+            converter="[[decimalHalfUpGroupRoundConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+        <span>Current component value is:</span>
+        <span id="curr-value">
+          <oj-bind-text value="[[decimalRoundingModeUpParse]]"></oj-bind-text>
+        </span>
+      
+        <br />
+        <b>Example 2</b>
+        :
+        <code class="prettyprint">
+          {"style": "decimal", "maximumFractionDigits": "2", "roundingMode": "HALF_DOWN",
+          "roundDuringParse": "true"}
+        </code>
+        <oj-form-layout id="fl13">
+          <oj-c-input-number
+            label-hint="roundDuringParse down"
+            id="decimal32"
+            value="{{decimalRoundingModeDownParse}}"
+            help.instruction="enter a number and it will round to HALF_DOWN and round during parse"
+            converter="[[decimalHalfDownGroupRoundConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+        <span>Current component value is:</span>
+        <span id="curr-value2">
+          <oj-bind-text value="[[decimalRoundingModeDownParse]]"></oj-bind-text>
+        </span>
+      
+        <br />
+        <b>Example 3</b>
+        :
+        <code class="prettyprint">
+          {"style": "decimal", "maximumFractionDigits": "2", "roundingMode": "HALF_EVEN",
+          "roundDuringParse": "true"}
+        </code>
+        <oj-form-layout id="fl14">
+          <oj-c-input-number
+            label-hint="roundDuringParse even"
+            id="decimal33"
+            value="{{decimalRoundingModeEvenParse}}"
+            help.instruction="enter a number and it will round to HALF_EVEN and round during parse"
+            converter="[[decimalHalfEvenGroupRoundConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+        <span>Current component value is:</span>
+        <span id="curr-valuerme">
+          <oj-bind-text value="[[decimalRoundingModeEvenParse]]"></oj-bind-text>
+        </span>
+      
+        <br />
+      
+        <h3 class="oj-header-border">Percent</h3>
+        <p>Converts between number and a locale specific string displayed in percent format.</p>
+        <p></p>
+        <b>Example</b>
+        :
+        <code class="prettyprint">
+          {"style": "percent", "maximumFractionDigits": "2", "useGrouping": "false"}
+        </code>
+      
+        <oj-form-layout id="fl15">
+          <oj-c-input-number
+            label-hint="percent"
+            id="percent11"
+            value="{{percent}}"
+            help.instruction="enter a number. note that percent values are divided by 100"
+            converter="[[percent2Converter]]"></oj-c-input-number>
+        </oj-form-layout>
+      
+        <h4>Percent roundDuringParse</h4>
+        <p>
+          Converts between number and a locale specific string displayed in percent format with
+          roundDuringParse.
+        </p>
+        <p></p>
+        <b>Example</b>
+        :
+        <code class="prettyprint">
+          {"style": "percent", "maximumFractionDigits": "2", "useGrouping": "false", "roundingMode":
+          "HALF_DOWN", "roundDuringParse": "true"}
+        </code>
+      
+        <oj-form-layout id="fl16">
+          <oj-input-number
+            label-hint="percent round down"
+            id="percent21"
+            value="{{percentRoundDuringParse}}"
+            help.instruction="enter a number. note that percent values are divided by 100. 
+            The converter rounds down and rounds during parse"
+            converter="[[percent1Converter]]"></oj-input-number>
+        </oj-form-layout>
+        <span>Current component value is:</span>
+        <span id="curr-valuerme2">
+          <oj-bind-text value="[[percentRoundDuringParse]]"></oj-bind-text>
+        </span>
+        <br />
+        <h4>Converters for digital units</h4>
+        <p>Converts number to digital units and formats like 5MB, 5Mb</p>
+        <p></p>
+        <b>Example</b>
+        :
+        <code class="prettyprint">
+          {"style": "unit", "unit": "bit", "minimumFractionDigits": "2", "maximumFractionDigits": "2"}
+        </code>
+      
+        <oj-form-layout id="fl19">
+          <oj-c-input-number
+            label-hint="digital unit"
+            id="inputNumberDigitalUnits"
+            value="{{formatDigitalUnits}}"
+            help.instruction="enter a number and converter will format it to a digital unit"
+            converter="[[unitConverter]]"></oj-c-input-number>
+        </oj-form-layout>
+        <span>Current component value is:</span>
+        <span id="curr-valuerme3">
+          <oj-bind-text value="[[formatDigitalUnits]]"></oj-bind-text>
+        </span>
+        <br />
+      </div>
+      
+      
+      
+    </div>
+  </div>
